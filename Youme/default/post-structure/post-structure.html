@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Section</title>
+    <link rel="icon" href="/images/logo/favicon.ico">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font awsome css/icons -->
+    <link href=".././../css/fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet">
+    <!--load all styles -->
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../../css/post-me.css">
+    <script src="../../js/post-me.js"></script>
+    <!--My Custom Js-->
+
+</head>
+
+<body style="background-color: #F2F3F5;">
+    <div id="fixedWidthHeight" class="">
+        <div id="PostSectionHeader" class="mt-5">
+            <ul class="list-group list-group-flush rounded-top">
+                <!--LIFO-->
+                <li class="list-group-item border">
+                    <!--Redirect you to the messanger-->
+                    <a href="#PhotoViewer" title="Profile Picture" class="d-inline mb-1" style="text-decoration: none;"> <!--Redirect you to the User's Profile Picture Viewer-->
+                        <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="46px" alt="Unknown">
+                    </a>
+                    <!-- PHP Src Image of the User & Alt Name of the user -->
+                    <div class="d-inline">
+                        <div class="d-inline-block ml-2">
+                            <a href="#UserProfile" class="font-weight-bold">
+                                User name  <!-- PHP Name of the User here --><!--Redirect you to his/her Profile-->
+                            </a>
+                            <br>
+                            <small class="text-secondary disabled">Thursday, Dec, 2020 </small>
+                            <!--Post Created Time-->
+                        </div>
+                        <div class="d-inline float-right mt-1">
+                            <div class="dropdown">
+                                <a class="mr-1" href="#" id="postActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i id="changeFaIcon" class="fa fa-ellipsis-v p-3" title="Add to fav"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="postActions" style="font-size: 14px;">
+                                    <li class="dropdown-item font-weight-bold">
+                                        <a href="#" class="">
+                                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                            <span class="ml-1">Forward</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item font-weight-bold">
+                                        <a href="#" class="">
+                                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                            <span class="ml-1">Forward All</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item font-weight-bold">
+                                        <a href="#" class="">
+                                            <i class="fas fa-forward"></i>
+                                            <span class="ml-1">Forward Pro</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item font-weight-bold">
+                                        <a href="#" class="">
+                                            <i class="fa fa-low-vision" aria-hidden="true"></i>
+                                            <span class="ml-1">Unfollow</span>
+                                        </a>
+                                    </li>
+                                    <li class="dropdown-item font-weight-bold">
+                                        <a href="#" class="">
+                                            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                            <span class="ml-1">Report</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div id="PostSectionBody" class="bg-white">
+            <div class="">
+                <img src="../../images/posts/Test/backends.png" class="" width="100%" height="">
+                <!--It's width is constant BUT it's height is depends on the actual size of that image and also must ve vertically Centered-->
+            </div>
+            <!--Show If the post has an image-->
+            <div class="">
+                <div id="GallaryPostContent" class="carousel slide carousel-fade fade" data-ride="carousel">
+                    <!--Carousel Indicators-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#GallaryPostContent" data-slide-to="0" class="active"></li>
+                        <li data-target="#GallaryPostContent" data-slide-to="1"></li>
+                    </ol>
+                    <!--Carousel Items-->
+                    <div class="carousel-inner">
+                        <!--tips: add data-interval="" to a .carousel-item to change the amount of time to delay before the next item.(Default: 5000)-->
+                        <div class="carousel-item active">
+                            <img src="" class="d-block w-100" alt="">
+                            <!--Image Label for the First Slide-->
+                            <!--This depends on the number of Images you wanna Post-->
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>First slide label</h5>
+                                <p>Some Description about the Picture</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="" class="d-block w-100" alt="">
+                            <!--Image Label for the First Slide-->
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                                <p>Some Description about the Picture</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Carousel Controls-->
+                    <a class="carousel-control-prev" href="#GallaryPostContent" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#GallaryPostContent" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr class="my-0">
+        <div id="PostSectionFooter" class="bg-white">
+            <ul class="list-group list-group-horizontal">
+                <li class="list-group-item p-0 border-0" title="Like">
+                    <div class="btn-group dropup">
+                        <button class="btn btn-link" type="button" id="reactSection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i id="reactType" class="text-primary far fa-thumbs-up"></i>
+                        </button>
+                        <div class="dropdown-menu p-0 border-0" aria-labelledby="reactSection">
+                            <ul class="list-group list-group-horizontal">
+                                <!--Every List in here will redirect you to the official Share API of those Social medias-->
+                                <li class="list-group-item py-1 px-3">
+                                    <a href="#" class="" onmouseover="colorChanger('like');" onmouseout="colorReChanger('like');" onclick="reactBasedOn('like');">
+                                        <i id="likeReact" class="far fa-thumbs-up text-primary" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item py-1 px-3">
+                                    <a href="#" class="" onmouseover="colorChanger('dislike');" onmouseout="colorReChanger('dislike');" onclick="reactBasedOn('dislike');">
+                                        <i id="dislikeReact" class="far fa-thumbs-down text-secondary" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item py-1 px-3">
+                                    <a href="#" class="" onmouseover="colorChanger('love');" onmouseout="colorReChanger('love');" onclick="reactBasedOn('love');">
+                                        <i id="loveReact" class="far fa-heart text-danger"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item py-1 px-3">
+                                    <a href="#" class="" onmouseover="colorChanger('laugh');" onmouseout="colorReChanger('laugh');" onclick="reactBasedOn('laugh');">
+                                        <i id="laughReact" class="far fa-laugh text-warning"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item py-1 px-3">
+                                    <a href="#" class="" onmouseover="colorChanger('angry');" onmouseout="colorReChanger('angry');" onclick="reactBasedOn('angry');">
+                                        <i id="angryReact" class="far fa-angry text-danger"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item p-0 border-0" title="Comment">
+                    <button class="btn btn-link" type="button" onclick="focusOnComment();">
+                        <i id="CommentSection" class="far fa-comment"></i>
+                    </button>
+                </li>
+                <li class="list-group-item p-0 border-0" title="Share">
+                    <div class="btn-group dropup">
+                        <button class="btn btn-link" type="button" id="ShareSection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <!--Will Share the Post-->
+                            <i class="fas fa-share"></i>
+                        </button>
+                        <div class="dropdown-menu p-0 border-0" aria-labelledby="ShareSection">
+                            <ul class="list-group list-group-horizontal">
+                                <li class="list-group-item py-1 px-3" title="Facebook">
+                                    <a href="#">
+                                        <i id="facebookShare" class="fab fa-facebook-f text-primary" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item py-1 px-3" title="Instagram">
+                                    <a href="#">
+                                        <i id="instagramShare" class="fab fa-instagram text-danger" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item py-1 px-3" title="Twitter">
+                                    <a href="#">
+                                        <i id="twitterShare" class="fab fa-twitter text-info"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item py-1 px-3" title="LinkedIn">
+                                    <a href="#">
+                                        <i id="linkedinShare" class="fab fa-linkedin text-primary"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item py-1 px-3" title="Telegram">
+                                    <a href="#">
+                                        <i id="telegramShare" class="fab fa-telegram text-info"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item py-1 px-3" title="Get Link">
+                                    <a href="#">
+                                        <i id="getlink" class="fas fa-link text-info"></i>
+                                    </a>
+                                </li>
+                                <li class="list-group-item py-1 px-3" title="Share with me">
+                                    <a href="#">
+                                        <i id="shareNow" class="fas fa-share-square text-info"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item p-0 border-0" title="Save Post">
+                    <button class="btn btn-link" type="button" onclick="savePost();"> <!--Will also save the post on your Timeline-->
+                        <i id="SaveSection" class="far fa-bookmark"></i>
+                    </button>
+                </li>
+                <li class="list-group-item p-0 border-0" title="Download">
+                    <button class="btn btn-link" type="button" id="DownloadSection"> <!--Will Automatically Download the Post/Image/Video-->
+                        <i class="fas fa-download"></i>
+                    </button>
+                </li>
+            </ul>
+            <div class="">
+                <form method="" action="">
+                    <div class="input-group text-primary">
+                        <textarea class="form-control border-right-0 text-secondary" name="postComment" id="writeAComment" rows="1" placeholder="Add a comment..."></textarea>
+                        <div class="input-group-append">
+                            <button type="submit" id="CommentPostBtn" class="btn text-primary font-weight-bold border border-left-0">post</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

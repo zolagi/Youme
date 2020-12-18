@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="icon" href="/images/logo/favicon.ico">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font awsome 5 css/icons -->
+    <link href=".././../css/fontawesome-free-5.15.1-web/css/all.css" rel="stylesheet">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="../../css/profile.css">
+    <script src="../../js/profile.js"></script>
+
+    <style>
+        fieldset.scheduler-border {
+            border: 3px groove #ddd !important;
+            padding: 0 1.4em 1.4em 1.4em !important;
+            margin: 0 0 1.5em 0 !important;
+            -webkit-box-shadow: 0px 0px 0px 0px #000;
+            box-shadow: 0px 0px 0px 0px #000;
+        }
+        
+        legend.scheduler-border {
+            width: auto;
+            padding: 0 10px;
+            border-bottom: none;
+        }
+    </style>
+
+    <script>
+        function addRow(tableID) {
+            var table = document.getElementById(tableID);
+
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+            var cell = [];
+
+            for (var x = 0; x < table.rows[0].cells.length; x++) {
+                cell[x] = row.insertCell(x);
+                cell[x].setAttribute('contenteditable', 'true');
+            }
+        }
+
+        function deleteRow(tableID) {
+            var table = document.getElementById(tableID);
+            var rowCount = table.rows.length;
+
+            if (rowCount > 2)
+                table.deleteRow(rowCount - 1);
+        }
+    </script>
+
+</head>
+
+<body style="background-color: #F2F3F5;">
+    <div id="Profile-Area">
+        <div id="Profile-Header" class="text-center">
+            <a href="#" class="">
+                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle" width="150px" alt="Unknown">
+                <i class="fa fa-camera mt-n4" aria-hidden="true"></i>
+            </a>
+            <h4 id="Username" class="ml-n3 mt-2">User name</h4>
+            <p id="Bio">
+                Blah Blah Blah Blah Blah Blah Blah
+        </div>
+        <hr class="mb-0">
+        <div id="Profile-Body" class="bg-white container">
+            <div class="row p-2">
+                <form class="col-12" method="" action="" accept-charset="utf-8">
+                    <fieldset class="col-12 scheduler-border">
+                        <legend class="scheduler-border">Personal Information</legend>
+                        <div id="PersonalInfoEdit">
+                            <div class="row">
+                                <div class="col form-group">
+                                    <input type="text" class="form-control" name="fname" id="Fname" placeholder="First name">
+                                </div>
+                                <div class="col form-group">
+                                    <input type="text" class="form-control" name="lname" id="Lname" placeholder="Last name">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <input type="email" class="form-control" name="email" id="emailId" placeholder="example@email.com">
+                                </div>
+                                <div class="col form-group">
+                                    <input type="password" class="form-control" name="password" value="" autocomplete="off" id="passwordId" placeholder="************">
+                                </div>
+                            </div>
+                            <div class="row form-group">
+                                <div class="col ml-3">
+                                    <label for="Gender">Gender</label>
+                                    <div id="Gender">
+                                        <input type="radio" name="gender" id="male" checked value="male" class="">
+                                        <label for="male">
+                                            <i class="fa fa-male" aria-hidden="true"> Male</i>
+                                        </label>
+                                        <input type="radio" name="gender" id="female" value="female" class="">
+                                        <label for="female">
+                                            <i class="fa fa-female" aria-hidden="true"> Female</i>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <label for="BithDate">Bith Date</label>
+                                    <input type="date" class="col form-control" name="birthdate" id="BirthDate" placeholder="">
+                                </div>
+                                <div class="col-4">
+                                    <label for="MaritialStatus" class="">Maritial status</label>
+                                    <select class="form-control selected" name="country_code" id="MaritialStatus" style="width: 100%">
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Devorced">Devorced</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-6">
+                                <label>Phone number</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">
+                                            <i class="fa fa-phone-alt" aria-hidden="true"></i>
+                                        </span>
+                                    </div>
+                                    <input id="phone" type="tel" class="form-control" placeholder="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row w-75 ml-2">
+                                    Address
+                                </div>
+                                <div class="row w-75 ml-2">
+                                    <input type="street" class="form-control" id="autocomplete" placeholder="Street">
+                                </div>
+                                <div class="row w-75 ml-2">
+                                    <input type="city" class="col-5 form-control" id="inputCity" placeholder="City">
+                                    <input type="state" class="col-4 form-control" id="inputState" placeholder="State">
+                                    <input type="zip" class="col-3 form-control" id="inputZip" placeholder="Zip">
+                                </div>
+                                <div class="row w-75 ml-2">
+                                    <input type="pobox" class="col-6 form-control" id="inputPoBox" placeholder="P.O. Box">
+                                    <input type="country" class="col-6 form-control" id="inputCountry" placeholder="Country">
+                                </div>
+                            </div>
+
+                            <input name="submitPersonal" id="SubmitPersonal" class="btn btn-sm btn-primary ml-2" disabled type="submit" value="Submit">
+                            <!--SQL Update-->
+                            <input name="CancelPersonal" id="CancelPersonal" class="btn btn-sm btn-primary" disabled type="reset" onclick="disable_enabled('PersonalInfoEdit')" value="cancel">
+                            <!--Reset-->
+                        </div>
+                        <input name="editPersonal" id="EditPersonal" class="btn btn-sm btn-primary font-weight-bold px-4 m-2" onclick="enable_disabled('PersonalInfoEdit');" type="button" value="Edit">
+                        <!--JS Enable Disabled-->
+                    </fieldset>
+                </form>
+            </div>
+            <div class="row px-4">
+                <form class="col-12" method="" action="" accept-charset="utf-8"></form>
+                <fieldset class="col-12 scheduler-border">
+                    <legend class="scheduler-border">Education Background</legend>
+                    <div id="EduInfoEdit">
+                        <p class="font-weight-bold">Higher Education ( <i class="fa fa-university" aria-hidden="true"> University / College</i> )</p>
+                        <table id="higherEdu" class="table table-responsive-sm table-responsive-md table-bordered" style="font-size: 14px;">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>School Name</th>
+                                    <th>School Address</th>
+                                    <th>Field of Study</th>
+                                    <th>Year From</th>
+                                    <th>Year To</th>
+                                    <th>Graduated(Y/N)</th>
+                                    <th>GPA(3.0)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-sm btn-primary" onclick="addRow('higherEdu');" id="addBtn" type="button"> 
+                            Add new Row 
+                        </button>
+                        <button class="btn btn-sm btn-primary" onclick="deleteRow('higherEdu');" id="addBtn" type="button"> 
+                            Delete last Row 
+                        </button>
+                        <p class="font-weight-bold mt-3">Secondary Education ( <i class="fas fa-school"> Grade 9 - 12</i> )</p>
+                        <table id="secondaryEdu" class="table table-responsive-sm table-responsive-md table-bordered" style="font-size: 14px;">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Grade</th>
+                                    <th>School Name</th>
+                                    <th>School Address</th>
+                                    <th>Field of Study (Soc. / Nat)</th>
+                                    <th>Year</th>
+                                    <th>Finished Year</th>
+                                    <th>GPA/Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-sm btn-primary" onclick="addRow('secondaryEdu');" id="addBtn" type="button"> 
+                            Add new Row 
+                        </button>
+                        <button class="btn btn-sm btn-primary" onclick="deleteRow('secondaryEdu');" id="addBtn" type="button"> 
+                            Delete last Row 
+                        </button>
+                        <p class="font-weight-bold mt-3">Primary Education ( <i class="fas fa-bus"> Below Grade 8</i> )</p>
+                        <table id="primaryEdu" class="table table-responsive-sm table-responsive-md table-bordered" style="font-size: 14px;">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Grade</th>
+                                    <th>School Name</th>
+                                    <th>School Address</th>
+                                    <th>Year</th>
+                                    <th>Finished Year</th>
+                                    <th>GPA/Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                    <td contenteditable="true"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-sm btn-primary" onclick="addRow('primaryEdu');" id="addBtn" type="button"> 
+                            Add new Row 
+                        </button>
+                        <button class="btn btn-sm btn-primary" onclick="deleteRow('primaryEdu');" id="addBtn" type="button"> 
+                            Delete last Row 
+                        </button>
+                        <hr>
+
+                        <input name="submitEdu" id="SubmitEdu" class="btn btn-sm btn-primary ml-2" disabled type="submit" value="Submit">
+                        <!--SQL Update-->
+                        <input name="CancelEdu" id="CancelEdu" class="btn btn-sm btn-primary" disabled type="reset" onclick="disable_enabled('EduInfoEdit')" value="cancel">
+                        <!--Reset-->
+                    </div>
+                    <input name="editEdu" id="EditEdu" class="btn btn-sm btn-primary font-weight-bold px-4 m-2" onclick="enable_disabled('EduInfoEdit');" type="button" value="Edit">
+                    <!--JS Enable Disabled-->
+                </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $("#PersonalInfoEdit :input" && "#EduInfoEdit :input").prop("disabled", true);
+        });
+
+        function disable_enabled(disabledID) {
+            $("#" + disabledID + " :input").prop("disabled", true);
+        }
+
+        function enable_disabled(disabledID) {
+            $("#" + disabledID + " :input").prop("disabled", false);
+        }
+    </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aside Nav</title>
+    <link rel="icon" href="/images/logo/favicon.ico" >
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font awsome css/icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--My Custom Aside Js-->
+    <script src="../../js/aside.js"></script>
+
+    <style>
+        .list-group-item {
+            background-color: #F2F3F5;
+        }
+    </style>
+
+    
+</head>
+<body style="background-color: #F2F3F5;">
+    <div class="float-right">
+        <p class="font-weight-bold my-0" style="font-size: 20px;">Active Contacts</p>
+        <hr class="my-1">
+        <div class="row mx-auto">
+            <span class="col-4 px-0 font-weight-bold" style="font-size: 15px;">Your Status:</span>
+            <ul class="col-3 list-group list-group-horizontal ml-2 flush">
+                <li class="list-group-item p-0 border-0">
+                    <small class="d-inline bg-white rounded-circle disabled" style="font-size: 10px; padding: 1px;">
+                        <i id="myStatusSign" class="text-success fa fa-circle" aria-hidden="true"></i> 
+                        <!--Text-Secondary for Last seen an exact date status-->
+                        <!--Text-Success for Active Now status-->
+                        <!--Text-dark for Blocked you status-->
+                        <!--Text-red for Deleted Account status-->
+                        <!--Text-info for Busy/Don't-Desturb status-->
+                    </small>
+                </li>
+                <li class="list-group-item px-1 pt-1 pb-0 border-0" style="font-size: 13px;">
+                    <span id="myStatusName" class="d-inline font-weight-bold">Online</span>
+                </li>
+            </ul>
+        </div>
+        <ul class="row mx-auto list-group list-group-horizontal" style="font-size: 13px;">
+            <li class="col list-group-item p-0 ml-1 border-0" onclick="changeStatus('online');">
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" name="status" id="OnlineStatus" value="online" checked>
+                    <label class="font-weight-bold custom-control-label" for="OnlineStatus" style="padding-top: 2px;">
+                        Online
+                    </label>
+                </div>
+            </li>
+            <li class="col list-group-item p-0 ml-1 border-0" onclick="changeStatus('block');">
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" name="status" id="BlockAllStatus" value="blocked">
+                    <label class="font-weight-bold custom-control-label" for="BlockAllStatus" style="padding-top: 2px;">
+                        Block
+                    </label>
+                </div>
+            </li>
+            <li class="col list-group-item p-0 ml-1 border-0" onclick="changeStatus('busy');">
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" name="status" id="BusyStatus" value="busy">
+                    <label class="font-weight-bold custom-control-label" for="BusyStatus" style="padding-top: 2px;">
+                        Busy
+                    </label>
+                </div>
+            </li>
+            <li class="col list-group-item p-0 ml-1 mr-1 border-0" onclick="changeStatus('offline');">
+                <div class="custom-control custom-radio">
+                    <input class="custom-control-input" type="radio" name="status" id="OfflineStatus" value="offline">
+                    <label class="font-weight-bold custom-control-label" for="OfflineStatus" style="padding-top: 2px;">
+                        Offline
+                </div>
+            </li>
+        </ul>
+        <hr class="my-1">
+        <ul class="list-group list-group-flush"> <!--All Friends will be sorted by their las seen time unless they are fav-->
+            <li class="list-group-item" onmouseover="removeFadeClass();" onmouseout="removeShowClass();"> <!--Redirect you to the messanger-->
+                <a href="#PhotoViewer" class="d-inline mb-1" style="text-decoration: none;"> <!--Redirect you to the User's Profile Picture Viewer-->
+                    <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="46px" alt="Unknown">
+                </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                <div class="d-inline">
+                    <div class="d-inline-block ml-2">
+                        <a href="#UserProfile" class="font-weight-bold">
+                            User name  <!-- PHP Name of the User here --><!--Redirect you to his/her Profile-->
+                        </a> 
+                        <br>
+                        <small class="text-secondary disabled">Thursday, Dec, 2020 </small> <!--Last seen date--> <!--If Active It says Now-->
+                    </div>
+                    <div class="d-inline float-right mt-1">
+                        <button type="button" onclick="addToFav();" ondblclick="returnBack();" id="showFavButton" class="btn btn-light rounded-circle mr-1 fade"> <!--On hover to the parent(the list) it will popup-->
+                            <i id="changeFaIcon" class="fa fa-heart-o" title="Add to fav"></i> <!--Add to Favourite and Pin to Top--> <!--When clicked It will add text-danger and change fa-heart-o to fa-heart-->
+                        </button>
+                        <small class="bg-white rounded-circle disabled" style="font-size: 10px; padding: 1px;">
+                            <i class="text-secondary fa fa-circle" aria-hidden="true"></i> 
+                            <!--Text-Secondary for Last seen an exact date status-->
+                            <!--Text-Success for Active Now status-->
+                            <!--Text-dark for Blocked you status-->
+                            <!--Text-red for Deleted Account status-->
+                            <!--Text-info for Busy/Don't-Desturb status-->
+                        </small>
+                    </div>
+                </div>
+            </li>
+            <!--All IDs must be dynamically changed when another list come up--> <!--ID Identifier ==> ID => [ID Name ]-->
+            <li class="list-group-item" onmouseover="removeFadeClass();" onmouseout="removeShowClass();"> <!--Redirect you to the messanger-->
+                <a href="#PhotoViewer" class="d-inline mb-1" style="text-decoration: none;"> <!--Redirect you to the User's Profile Picture Viewer-->
+                    <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="46px" alt="Unknown">
+                </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                <div class="d-inline">
+                    <div class="d-inline-block ml-2">
+                        <a href="#UserProfile" class="font-weight-bold">
+                            User name  <!-- PHP Name of the User here --><!--Redirect you to his/her Profile-->
+                        </a> 
+                        <br>
+                        <small class="text-secondary disabled">Thursday, Dec, 2020 </small> <!--Last seen date--> <!--If Active It says Now-->
+                    </div>
+                    <div class="d-inline float-right mt-1">
+<!--ID => showFavButton--><button type="button" onclick="addToFav();" ondblclick="returnBack();" id="showFavButton" class="btn btn-light rounded-circle mr-1 fade"> <!--On hover to the parent(the list) it will popup-->
+<!--ID => changeFaIcon--><i id="changeFaIcon" class="fa fa-heart-o" title="Add to fav"></i> <!--Add to Favourite and Pin to Top--> <!--When clicked It will add text-danger and change fa-heart-o to fa-heart-->
+                        </button>
+                        <small class="bg-white rounded-circle disabled" style="font-size: 10px; padding: 1px;">
+                            <i class="text-secondary fa fa-circle" aria-hidden="true"></i> 
+                            <!--Text-Secondary for Last seen an exact date status-->
+                            <!--Text-Success for Active Now status-->
+                            <!--Text-dark for Blocked you status-->
+                            <!--Text-red for Deleted Account status-->
+                            <!--Text-info for Busy/Don't-Desturb status-->
+                        </small>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

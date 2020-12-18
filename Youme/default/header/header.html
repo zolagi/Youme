@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font awsome css/icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .animater {
+            display: block;
+            visibility: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: .5s ease all;
+        }
+        
+        .animater.show {
+            display: block;
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0px);
+            transition: .5s ease all;
+        }
+        
+        .customizedDD {
+            margin-top: -343px;
+            width: 294px;
+            height: 350px;
+            margin-left: -4px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $('.customizedDD').click(function(e) {
+                e.stopPropagation();
+            })
+        });
+    </script>
+</head>
+
+<body style="background-color: #F2F3F5;">
+    <header>
+        <nav class="shadow-sm navbar navbar-expand-md navbar-light bg-white font-weight-bold">
+            <!--tips: to change the nav placement use .fixed-top,.fixed-bottom,.sticky-top-->
+            <!-- <a class="navbar-brand" href="#">My Brand</a> -->
+            <a class="navbar-brand" href="#">
+                <img src="../../images/logo/favicon.ico" class="d-inline-block align-top" width="45" height="40" alt="Logo">
+                <img src="../../images/name.png" class="d-inline-block align-top" width="100" height="40" alt="Logo-name">
+            </a>
+            <form class="col my-2" method="GET" action="">
+                <!-- w-25 -->
+                <input class="form-control rounded-pill pl-4 font-weight-bold" type="search" placeholder="Search" aria-label="Search">
+            </form>
+            <button class="col-1 navbar-toggler p-1" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="col-md-7 collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active p-2">
+                        <a class="nav-link mx-lg-2" href="#" title="Home">
+                            <img src="../../images/common/default/homeB.png" onmouseover="" class="" width="" height="" alt="Home-Nav">
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item p-2">
+                        <a class="nav-link mx-lg-2" href="#" title="Camera">
+                            <img src="../../images/common/default/cameraB.png" onmouseover="" class="" width="" height="" alt="Camera-Nav">
+                        </a>
+                    </li>
+
+                    <li class="nav-item p-2">
+                        <a class="nav-link mx-lg-2" href="#" title="Live">
+                            <img src="../../images/common/default/liveB.png" onmouseover="" class="" width="" height="" alt="Live-Nav">
+                        </a>
+                    </li>
+
+                    <li class="nav-item p-2">
+                        <a class="nav-link mx-lg-2" href="#" title="Screens">
+                            <img src="../../images/common/default/screenB.png" onmouseover="" class="" width="" height="" alt="Screen-Nav">
+                        </a>
+                    </li>
+
+                    <li class="nav-item p-2">
+                        <a class="nav-link mx-lg-2" href="#" title="Saved">
+                            <img src="../../images/common/default/saveB.png" onmouseover="" class="" width="" height="" alt="Saved-Nav">
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="row">
+                    <button type="button" class="btn btn-outline-secondary rounded-pill mx-2 p-1">
+                        <img src="../../images/Peoples/default/x28/Avatar-man-28.jpeg" class="rounded-circle" width="28px" alt="Unknown"> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <span class="mr-1">Zelalem</span> <!-- PHP First Name of the User here -->
+                    </button>
+                    <button class="btn btn-secondary m-1 rounded-circle d-flex justify-content-center align-items-center" type="button">
+                        <i class="fa fa-bell mx-auto" aria-hidden="true"></i>
+                        <span class="badge badge-pill badge-danger"></span>
+                    </button>
+                    <button class="btn btn-secondary m-1 rounded-circle d-flex justify-content-center align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-envelope-open mx-auto" aria-hidden="true"></i>
+                        <span class="badge badge-pill badge-danger"></span>
+                    </button>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary m-1 rounded-circle d-flex justify-content-center align-items-center" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-caret-down mx-auto" style="font-size: 26px;" aria-hidden="true"></i>
+                        </button>
+                        <div class="animater dropdown-menu dropdown-menu-right my-3 rounded-lg shadow-lg" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">
+                                <div class="">
+                                    <div class="d-inline">
+                                        <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mb-1 mt-n3" width="72px" alt="Unknown">
+                                        <!-- PHP Src Image of the User & Alt Name of the user -->
+                                        <div class="d-inline-block ml-2 mt-3 mh-100">
+                                            <span class="font-weight-bold" style="font-size: large;">Zelalem</span>
+                                            <!-- PHP First Name of the User here -->
+                                            <br>
+                                            <span class="text-secondary">See your profile </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">
+                                <div class="mt-n3">
+                                    <div class="d-inline">
+                                        <button class="btn btn-secondary rounded-circle mt-n3 mb-1 d-inline justify-content-center align-items-center">
+                                            <i class="fa fa-comment-o mx-auto"></i>
+                                        </button>
+                                        <div class="d-inline-block ml-2 mt-3 mh-100">
+                                            <span class="font-weight-bold" style="font-size: large;">Give Feedback</span>
+                                            <br>
+                                            <small class="text-secondary">Help us improve the new Youme</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <!--SETTINGS-->
+                            <a class="dropdown-link dropdown-item" style="font-size: 20px;" type="button" id="SettingtriggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-secondary rounded-circle mr-1" type="button">
+                                    <i class="fa fa-cog" aria-hidden="true"></i> 
+                                </button> Settings
+                                <i class="fa fa-chevron-right float-right mr-1 pt-2" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu customizedDD animater" aria-labelledby="SettingtriggerId">
+                                <a class="dropdown-item" href="#" onclick="goBackwards();">
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                </a>
+                                <a class="dropdown-item mt-2" href="#Settings">
+                                    <button class="btn btn-secondary rounded-circle mr-1" type="button">
+                                        <i class="fa fa-cog" aria-hidden="true"></i> 
+                                    </button> Settings
+                                </a>
+                                <a class="dropdown-item mt-2" href="#PrivacySettings">
+                                    <button class="btn btn-secondary rounded-circle mr-1" type="button">
+                                        <i class="fa fa-lock" aria-hidden="true"></i> 
+                                    </button> Privacy Setting
+                                </a>
+                                <a class="dropdown-item mt-2" href="#ActiveSessions">
+                                    <button class="btn btn-secondary rounded-circle mr-1" type="button">
+                                        <i class="fa fa-search-plus" aria-hidden="true"></i> 
+                                    </button> Active Sessions
+                                </a>
+                                <a class="dropdown-item mt-2" href="#ActivityLogs">
+                                    <button class="btn btn-secondary rounded-circle mr-1" type="button">
+                                        <i class="fa fa-th-list" aria-hidden="true"></i> 
+                                    </button> Activity Log
+                                </a>
+                                <a class="dropdown-item mt-2" href="#Language">
+                                    <button class="btn btn-secondary rounded-circle mr-1" type="button">
+                                        <i class="fa fa-language" aria-hidden="true"></i> 
+                                    </button> Language
+                                </a>
+                            </div>
+
+                            <!--HELP-->
+                            <a class="dropdown-link dropdown-item" style="font-size: 20px;" id="HelptriggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-secondary rounded-circle mr-2" type="button">
+                                    <i class="fa fa-question" aria-hidden="true"></i>
+                                </button> Help & Support
+                                <i class="fa fa-chevron-right float-right mr-1 pt-2" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu customizedDD animater" aria-labelledby="HelptriggerId">
+                                <a class="dropdown-item" href="#" onclick="goBackwards();">
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                </a>
+                                <a class="dropdown-item mt-2" href="#Help">
+                                    <button class="btn btn-secondary rounded-circle mr-1" type="button">
+                                        <i class="fa fa-question-circle-o" aria-hidden="true"></i> 
+                                    </button> Help
+                                </a>
+                                <a class="dropdown-item mt-2" href="#Community">
+                                    <button class="btn btn-secondary rounded-circle mr-1" type="button">
+                                        <i class="fa fa-envelope" aria-hidden="true"></i> 
+                                    </button> Help Community
+                                </a>
+                                <a class="dropdown-item mt-2" href="#Support">
+                                    <button class="btn btn-secondary rounded-circle mr-1" type="button">
+                                        <i class="fa fa-support" aria-hidden="true"></i> 
+                                    </button> Support Inbox
+                                </a>
+                                <a class="dropdown-item mt-2" href="#ReportProblem">
+                                    <button class="btn btn-secondary rounded-circle mr-1" type="button">
+                                        <i class="fa fa-exclamation-circle" aria-hidden="true"></i> 
+                                    </button> Report a Problem
+                                </a>
+                            </div>
+
+                            <!--DISPLAY-->
+                            <a class="dropdown-link dropdown-item" style="font-size: 20px;" type="button" id="DisplaytriggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-secondary rounded-circle mr-1" type="button">
+                                    <i class="fa fa-moon-o" aria-hidden="true"></i> 
+                                </button> Display
+                                <i class="fa fa-chevron-right float-right mr-1 pt-2" aria-hidden="true"></i>
+                            </a>
+                            <div class="dropdown-menu customizedDD animater" aria-labelledby="DisplaytriggerId">
+                                <a class="dropdown-item" href="#" onclick="goBackwards();">
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <a class="dropdown-link dropdown-item" style="font-size: 20px;" type="button" id="Logout" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <button class="btn btn-secondary rounded-circle mr-1" type="button">
+                                    <i class="fa fa-sign-out" aria-hidden="true"></i> 
+                                </button> Signout
+                            </a>
+                            <div class="dropdown-divider mb-n1 py-0"></div>
+                            <a class="dropdown-link dropdown-item small" style="font-size: 20px;" type="button" id="AboutLinks" aria-haspopup="true" aria-expanded="false">
+                                <a href="#Terms" class="text-secondary ml-3">
+                                    <small>Terms</small>
+                                </a>
+                                <a href="#Conditions" class="text-secondary ml-1">
+                                    <small>Conditions</small>
+                                </a>
+                                <a href="#FAQ" class="text-secondary ml-1">
+                                    <small>FAQ</small>
+                                </a>
+                                <a href="#About" class="text-secondary ml-1">
+                                    <small>About</small>
+                                </a>
+                                <a href="#Donate" class="text-secondary ml-1">
+                                    <small>Donate</small>
+                                </a>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+</body>
+
+</html>

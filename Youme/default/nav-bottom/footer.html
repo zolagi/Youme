@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font awsome css/icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        li:hover {
+            background-color: #F2F3F5;
+        }
+        
+    </style>
+
+</head>
+<body style="background-color: #F2F3F5;"> <!--  height: 100px;-->
+<ul class="row nav bg-white shadow fixed-bottom font-weight-bold p-0">
+   <li class="col nav-item border px-0 mx-0  py-1 text-center">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#collectiveModal">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            All
+        </a>
+    </li>
+    <li class="col nav-item border px-0 mx-0  py-1 text-center">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#verifiedModal">
+            <i class="fa fa-check-circle" aria-hidden="true"></i>
+            Verified
+        </a>
+    </li>
+    <li class="col nav-item border px-0 mx-0  py-1 text-center">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#groupModal">
+            <i class="fa fa-group" aria-hidden="true"></i>
+            Groups
+        </a>
+    </li>
+    <li class="col nav-item border px-0 mx-0  py-1 text-center">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#pageModal">
+            <i class="fa fa-hashtag" aria-hidden="true"></i>
+            Pages
+        </a>
+    </li>
+    <li class="col nav-item border px-0 mx-0  py-1 text-center">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#pinnedModal">
+            <i class="fa fa-thumb-tack" aria-hidden="true"></i>
+            Pinned
+        </a>
+    </li>
+    <li class="col nav-item border px-0 mx-0  py-1 text-center">
+        <div class="dropup">
+            <a class="nav-link" href="#" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-caret-up" aria-hidden="true"></i>
+                Others
+            </a>
+            <div class="dropdown-menu shadow-lg mr-n1 rounded-lg" aria-labelledby="dropdownMenuButton">
+                <small class="ml-2 text-secondary mt-n3">Regular</small>
+                <a class="dropdown-item text-primary font-weight-bold" href="#" data-toggle="modal" data-target="#createPostModal">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Create
+                </a>
+                <a class="dropdown-item text-primary font-weight-bold" href="#">
+                    <i class="fa fa-calendar" aria-hidden="true"></i> Schedule(Pro)
+                </a>
+                <div class="dropdown-divider"></div>
+                <small class="ml-2 text-secondary mt-n3">Youme Developers</small>
+                <a class="dropdown-item text-primary font-weight-bold" href="#">
+                    <i class="fa fa-link" aria-hidden="true"></i> Link(Pro)
+                </a>
+                <a class="dropdown-item text-primary font-weight-bold" href="#">
+                    <i class="fa fa-th-list" aria-hidden="true"></i> YouHub(Pro)
+                </a>
+
+                <div class="dropdown-divider"></div>
+                <small class="ml-2 text-secondary mt-n3">Find out</small>
+                <a class="dropdown-item text-primary font-weight-bold" href="#">
+                    <i class="fa fa-wikipedia-w" aria-hidden="true"></i> Wikipedia
+                </a>
+                <a class="dropdown-item text-primary font-weight-bold" href="#">
+                    <i class="fa fa-google" aria-hidden="true"></i> Google
+                </a>
+
+                <div class="dropdown-divider"></div>
+                <small class="ml-2 text-secondary mt-n3">Others</small>
+                <a class="dropdown-item text-primary font-weight-bold" href="#">
+                    <i class="fa fa-blind" aria-hidden="true"></i> Narrator
+                </a>
+                <a class="dropdown-item text-primary font-weight-bold" href="#">
+                    <i class="fa fa-american-sign-language-interpreting" aria-hidden="true"></i> Sign Lang
+                </a>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<!-- FOR ALL -->
+<div class="modal" id="collectiveModal">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+        <!-- Modal Header -->
+            <div class="modal-header" style="font-size: 12px;">
+                <form class="" method="GET" action="">
+                    <!-- w-25 -->
+                    <input class="form-control rounded-pill font-weight-bold" type="search" placeholder="Search" aria-label="Search">
+                    <div class="d-flex">
+                        <div class="d-inline-block font-weight-bold">
+                            <i class="fa fa-filter border-bottom pb-1 mb-1"> Filter</i>
+                            <div class="d-flex">
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="averifiedOnly" id="averified">
+                                    <label class="custom-control-label" for="averified">
+                                        <i class="fa fa-check-circle">
+                                            verified
+                                        </i>
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="arandomOnly" id="arandom">
+                                    <label class="custom-control-label" for="arandom">
+                                        <i class="fa fa-random">
+                                            random
+                                        </i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-inline-block ml-1 font-weight-bold">
+                            <i class="fa fa-sort border-bottom pb-1 mb-1"> Sort By</i>
+                            <div class="d-flex">
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="anameAsc" id="aascending">
+                                    <label class="custom-control-label" for="aascending">
+                                        <i class="fa fa-sort-alpha-asc">
+                                            name(asc)
+                                        </i>
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="aamount" id="aamount">
+                                    <label class="custom-control-label" for="aamount">
+                                        <i class="fa fa-sort-amount-desc">
+                                            unread(h2l)
+                                        </i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-inline-block ml-1 font-weight-bold">
+                            <a href="#" onclick="alert('Clear all Checked ones');" class="p-0 m-0 py-n3">
+                                <i class="fa fa-close border-bottom pb-1 mb-1">
+                                    Clear All
+                                </i>
+                            </a> <!--Clear all checked boxes-->
+                        </div>
+                    </div>
+                </form>            
+            <button type="button" class="close font-weight-bold" data-dismiss="modal">&times;</button>          
+            </div>        
+            <!-- Modal body -->
+            <div class="modal-body my-0 py-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> <!--Redirect you to the Group-->
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Group Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold"">
+                                    Group Name  <!-- PHP Name of the Group here --><!--Redirect you to the Group-->
+                                    <i class="fa fa-random"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Group has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the group at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item"> <!--Redirect you to the Group-->
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Group Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold"">
+                                    Group Name  <!-- PHP Name of the Group here --><!--Redirect you to the Group-->
+                                    <i class="fa fa-random"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Group has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the group at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>  
+                    <li class="list-group-item"> <!--Redirect you to the Group-->
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Group Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold"">
+                                    Group Name  <!-- PHP Name of the Group here --><!--Redirect you to the Group-->
+                                    <i class="fa fa-random"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Group has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the group at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>              
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOR VERIFIED -->
+<div class="modal" id="verifiedModal">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+        <!-- Modal Header -->
+            <div class="modal-header" style="font-size: 12px;">
+                <form class="" method="GET" action="">
+                    <!-- w-25 -->
+                    <input class="form-control rounded-pill font-weight-bold" type="search" placeholder="Search" aria-label="Search">
+                    <div class="d-flex">
+                        <div class="d-inline-block ml-1 font-weight-bold">
+                            <i class="fa fa-sort border-bottom pb-1 mb-1"> Sort By</i>
+                            <div class="d-flex">
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="vnameAsc" id="vascending">
+                                    <label class="custom-control-label" for="vascending">
+                                        <i class="fa fa-sort-alpha-asc">
+                                            name(asc)
+                                        </i>
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="vamount" id="vamount">
+                                    <label class="custom-control-label" for="vamount">
+                                        <i class="fa fa-sort-amount-desc">
+                                            unread(h2l)
+                                        </i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-inline-block ml-1 font-weight-bold">
+                            <a href="#" onclick="alert('Clear all Checked ones');" class="p-0 m-0 py-n3">
+                                <i class="fa fa-close border-bottom pb-1 mb-1">
+                                    Clear All
+                                </i>
+                            </a> <!--Clear all checked boxes-->
+                        </div>
+                    </div>
+                </form>            
+            <button type="button" class="close font-weight-bold" data-dismiss="modal">&times;</button>          
+            </div>        
+            <!-- Modal body -->
+            <div class="modal-body my-0 py-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> <!--Redirect you to the Group-->
+                        <!-- <span class="font-weight-bold ml-n3 mr-2 d-inline"> -->
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Group Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold"">
+                                    Group Name  <!-- PHP Name of the Verified Group/Page here --><!--Redirect you to the Group-->
+                                    <i class="fa fa-check-circle"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Group has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the group at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item"> <!--Redirect you to the Group-->
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Group Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold"">
+                                    Group Name  <!-- PHP Name of the Verified Group/Page here --><!--Redirect you to the Group-->
+                                    <i class="fa fa-check-circle"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Group has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the group at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li> 
+                    <li class="list-group-item"> <!--Redirect you to the Group-->
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Group Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold"">
+                                    Group Name  <!-- PHP Name of the Verified Group/Page here --><!--Redirect you to the Group-->
+                                    <i class="fa fa-check-circle"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Group has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the group at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>               
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOR THE GROUP -->
+<div class="modal" id="groupModal">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+        <!-- Modal Header -->
+            <div class="modal-header" style="font-size: 12px;">
+                <form class="" method="GET" action="">
+                    <!-- w-25 -->
+                    <input class="form-control rounded-pill font-weight-bold" type="search" placeholder="Search" aria-label="Search">
+                    <div class="d-flex">
+                        <div class="d-inline-block font-weight-bold">
+                            <i class="fa fa-filter border-bottom pb-1 mb-1"> Filter</i>
+                            <div class="d-flex">
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="gverifiedOnly" id="gverified">
+                                    <label class="custom-control-label" for="gverified">
+                                        <i class="fa fa-check-circle">
+                                            verified
+                                        </i>
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="grandomOnly" id="grandom">
+                                    <label class="custom-control-label" for="grandom">
+                                        <i class="fa fa-random">
+                                            random
+                                        </i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-inline-block ml-1 font-weight-bold">
+                            <i class="fa fa-sort border-bottom pb-1 mb-1"> Sort By</i>
+                            <div class="d-flex">
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="gnameAsc" id="gascending">
+                                    <label class="custom-control-label" for="gascending">
+                                        <i class="fa fa-sort-alpha-asc">
+                                            name(asc)
+                                        </i>
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="gamount" id="gamount">
+                                    <label class="custom-control-label" for="gamount">
+                                        <i class="fa fa-sort-amount-desc">
+                                            unread(h2l)
+                                        </i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-inline-block ml-1 font-weight-bold">
+                            <a href="#" onclick="alert('Clear all Checked ones');" class="p-0 m-0 py-n3">
+                                <i class="fa fa-close border-bottom pb-1 mb-1">
+                                    Clear All
+                                </i>
+                            </a> <!--Clear all checked boxes-->
+                        </div>
+                    </div>
+                </form>            
+            <button type="button" class="close font-weight-bold" data-dismiss="modal">&times;</button>          
+            </div>        
+            <!-- Modal body -->
+            <div class="modal-body my-0 py-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> <!--Redirect you to the Group-->
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Group Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold"">
+                                    Group Name  <!-- PHP Name of the Group here --><!--Redirect you to the Group-->
+                                    <i class="fa fa-random"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Group has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the group at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item"> <!--Redirect you to the Group-->
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Group Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold"">
+                                    Group Name  <!-- PHP Name of the Group here --><!--Redirect you to the Group-->
+                                    <i class="fa fa-random"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Group has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the group at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item"> <!--Redirect you to the Group-->
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Group Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold"">
+                                    Group Name  <!-- PHP Name of the Group here --><!--Redirect you to the Group-->
+                                    <i class="fa fa-random"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Group has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the group at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>             
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOR THE PAGE -->
+<div class="modal" id="pageModal">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+        <!-- Modal Header -->
+            <div class="modal-header" style="font-size: 12px;">
+                <form class="" method="GET" action="">
+                    <!-- w-25 -->
+                    <input class="form-control rounded-pill font-weight-bold" type="search" placeholder="Search" aria-label="Search">
+                    <div class="d-flex">
+                        <div class="d-inline-block font-weight-bold">
+                            <i class="fa fa-filter border-bottom pb-1 mb-1"> Filter</i>
+                            <div class="d-flex">
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="verifiedOnly" id="verified">
+                                    <label class="custom-control-label" for="verified">
+                                        <i class="fa fa-check-circle">
+                                            verified
+                                        </i>
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="randomOnly" id="random">
+                                    <label class="custom-control-label" for="random">
+                                        <i class="fa fa-random">
+                                            random
+                                        </i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-inline-block ml-1 font-weight-bold">
+                            <i class="fa fa-sort border-bottom pb-1 mb-1"> Sort By</i>
+                            <div class="d-flex">
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="nameAsc" id="ascending">
+                                    <label class="custom-control-label" for="ascending">
+                                        <i class="fa fa-sort-alpha-asc">
+                                            name(asc)
+                                        </i>
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="non" id="non">
+                                    <label class="custom-control-label" for="non">
+                                        <i class="fa fa-sort-amount-desc">
+                                            unread(h2l)
+                                        </i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-inline-block ml-1 font-weight-bold">
+                            <a href="#" onclick="alert('Clear all Checked ones');" class="p-0 m-0 py-n3">
+                                <i class="fa fa-close border-bottom pb-1 mb-1">
+                                    Clear All
+                                </i>
+                            </a> <!--Clear all checked boxes-->
+                        </div>
+                    </div>
+                </form>            
+            <button type="button" class="close font-weight-bold" data-dismiss="modal">&times;</button>          
+            </div>        
+            <!-- Modal body -->
+            <div class="modal-body my-0 py-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> <!--Redirect you to the Page-->
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Page Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold">
+                                    <span>#</span>Page Name  <!-- PHP Name of the Page here --><!--Redirect you to the Page-->
+                                    <i class="fa fa-random"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Page has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the page at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item"> <!--Redirect you to the Page-->
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Page Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold">
+                                    <span>#</span>Page Name  <!-- PHP Name of the Page here --><!--Redirect you to the Page-->
+                                    <i class="fa fa-random"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Page has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the page at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>                
+                    <li class="list-group-item"> <!--Redirect you to the Page-->
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Page Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold">
+                                    <span>#</span>Page Name  <!-- PHP Name of the Page here --><!--Redirect you to the Page-->
+                                    <i class="fa fa-random"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Page has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the page at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOR PINNED -->
+<div class="modal" id="pinnedModal">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+        <!-- Modal Header -->
+            <div class="modal-header" style="font-size: 12px;">
+                <form class="" method="GET" action="">
+                    <!-- w-25 -->
+                    <input class="form-control rounded-pill font-weight-bold" type="search" placeholder="Search" aria-label="Search">
+                    <div class="d-flex">
+                        <div class="d-inline-block font-weight-bold">
+                            <i class="fa fa-filter border-bottom pb-1 mb-1"> Filter</i>
+                            <div class="d-flex">
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="verifiedOnly" id="verified">
+                                    <label class="custom-control-label" for="verified">
+                                        <i class="fa fa-check-circle">
+                                            verified
+                                        </i>
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="randomOnly" id="random">
+                                    <label class="custom-control-label" for="random">
+                                        <i class="fa fa-random">
+                                            random
+                                        </i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-inline-block ml-1 font-weight-bold">
+                            <i class="fa fa-sort border-bottom pb-1 mb-1"> Sort By</i>
+                            <div class="d-flex">
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="nameAsc" id="ascending">
+                                    <label class="custom-control-label" for="ascending">
+                                        <i class="fa fa-sort-alpha-asc">
+                                            name(asc)
+                                        </i>
+                                    </label>
+                                </div>
+                                <div class="custom-control custom-checkbox mx-1">
+                                    <input class="custom-control-input" type="checkbox" value="non" id="non">
+                                    <label class="custom-control-label" for="non">
+                                        <i class="fa fa-sort-amount-desc">
+                                            unread(h2l)
+                                        </i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-inline-block ml-1 font-weight-bold">
+                            <a href="#" onclick="alert('Clear all Checked ones');" class="p-0 m-0 py-n3">
+                                <i class="fa fa-close border-bottom pb-1 mb-1">
+                                    Clear All
+                                </i>
+                            </a> <!--Clear all checked boxes-->
+                        </div>
+                    </div>
+                </form>            
+            <button type="button" class="close font-weight-bold" data-dismiss="modal">&times;</button>          
+            </div>        
+            <!-- Modal body -->
+            <div class="modal-body my-0 py-0">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> <!--Redirect you to the Page-->
+                        <span class="font-weight-bold ml-n3 mr-2 d-inline">
+                            1. <!-- PHP Counter -->
+                        </span>
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Page Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold">
+                                    <span>#</span>Page Name  <!-- PHP Name of the Page here --><!--Redirect you to the Page-->
+                                    <i class="fa fa-random"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Page has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the page at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item"> <!--Redirect you to the Page-->
+                        <span class="font-weight-bold ml-n3 mr-2 d-inline">
+                            2. <!-- PHP Counter -->
+                        </span>
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Page Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold">
+                                    <span>#</span>Page Name  <!-- PHP Name of the Page here --><!--Redirect you to the Page-->
+                                    <i class="fa fa-random"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Page has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the page at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item"> <!--Redirect you to the Page-->
+                        <span class="font-weight-bold ml-n3 mr-2 d-inline">
+                            3. <!-- PHP Counter -->
+                        </span>
+                            <a href="#" style="text-decoration: none;"> <!--Redirect you to the Page Info-->
+                                <img src="../../images/Peoples/default/x48/Avatar-man-48.jpeg" class="rounded-circle mt-n3" width="56px" alt="Unknown">
+                            </a> <!-- PHP Src Image of the User & Alt Name of the user -->
+                        <div class="d-inline">
+                            <div class="d-inline-block ml-2 mt-1">
+                                <a href="#" class="font-weight-bold">
+                                    <span>#</span>Page Name  <!-- PHP Name of the Page here --><!--Redirect you to the Page-->
+                                    <i class="fa fa-random"></i> <!--This will differentiate Random with Verified one's-->
+                                </a> 
+                                <br>
+                                <small class="text-secondary">Thursday, Dec, 2020 </small> <!--Date where the Page has been created-->
+                            </div>
+                            <div class="d-inline float-right mt-3">
+                                <button type="button" class="btn btn-light rounded-circle mr-1">
+                                    <i class="fa fa-thumb-tack" title="Pin to Top"></i> <!--Pin the page at the Top-->
+                                </button>
+                                <span class="badge badge-primary font-weight-bold">3</span> <!--Contantly Changes / Updates every time NOTICE: If it is more than 99 it will add + sign-->
+                            </div>
+                        </div>
+                    </li>                
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createPostModal" tabindex="-1" role="dialog" aria-labelledby="createPostModal-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createPostModalTitle">Create_a_Post</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                 <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#storyPane">
+            <i class="fa fa-edit"></i>
+            Story
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#photoPane">
+            <i class="fa fa-photo"></i>
+            Photo
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#videoPane">
+            <i class="fa fa-video-camera"></i>
+            Video
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#livePane">
+            <i class="fa fa-file-video-o"></i>
+            Live
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#activityPane">
+            <i class="fa fa-tasks"></i>
+            Activity
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#roomPane">
+            <i class="fa fa-home"></i>
+            Room
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#groupPane">
+            <i class="fa fa-group"></i>
+            Group
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#pagePane">
+            <i class="fa fa-hashtag"></i>
+            Page
+        </a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="storyPane" class="container tab-pane active"><br>
+        <p>Write Something</p>
+        <ul class="list-group list-group-horizontal-sm my-n3">
+            <li class="list-group-item">
+                <i class="fa fa-bold" aria-hidden="true"></i>
+            </li>
+            <li class="list-group-item">
+                <i class="fa fa-italic" aria-hidden="true"></i>
+            </li>
+            <li class="list-group-item">
+                <i class="fa fa-underline" aria-hidden="true"></i>
+            </li>
+            <li class="list-group-item">
+                <i class="fa fa-link" aria-hidden="true"></i>
+            </li>
+        </ul>
+        <form class="" method="" action="">
+            <div class="form-group">
+              <label for=""></label>
+              <textarea class="form-control" name="" id="" rows="3" maxlength="180"></textarea>
+            </div>
+            <a href="#FriendsList" class="btn btn-primary">
+                <i class="fa fa-tag" aria-hidden="true"> Tag a Friend</i>
+            </a>
+            <a href="#Author" class="btn btn-primary">
+                <i class="fa fa-user-circle" aria-hidden="true"> Add an Author</i>
+            </a>
+            <a href="#Vote" class="btn btn-primary">
+                <i class="fa fa-hand-stop-o" aria-hidden="true"> Add Votes</i>
+            </a>
+            <a href="#Location" class="btn btn-primary">
+                <i class="fa fa-map-marker" aria-hidden="true"> Add Location</i>
+            </a>
+            <div class="form-group  mt-3">
+              <label for="storyHashtag">#Hashtags</label>
+              <input type="text" class="form-control" name="storyTopic" id="storyHashtag" aria-describedby="helpIdForStoryTopic" placeholder="#Uncategorized">
+              <small id="helpIdForStoryTopic" class="form-text text-muted">use # on each Topics</small>
+            </div>
+            <div class="custom-control custom-checkbox mt-2">
+                <input class="custom-control-input" checked type="checkbox" value="allowComment" id="allowCommenting">
+                <label class="custom-control-label" for="allowCommenting">
+                    Allow Commenting
+                </label>
+            </div>
+            <div class="custom-control custom-checkbox mt-1">
+                <input class="custom-control-input" checked type="checkbox" value="allowShare" id="allowSharing">
+                <label class="custom-control-label" for="allowSharing">
+                    Allow Sharing
+                </label>
+            </div>
+        </form>
+    </div>
+    <div id="photoPane" class="container tab-pane fade"><br>
+
+    </div>
+    <div id="videoPane" class="container tab-pane fade"><br>
+
+    </div>
+    <div id="livePane" class="container tab-pane active"><br>
+
+    </div>
+    <div id="activityPane" class="container tab-pane fade"><br>
+
+    </div>
+    <div id="roomPane" class="container tab-pane fade"><br>
+
+    </div>
+    <div id="groupPane" class="container tab-pane active"><br>
+
+    </div>
+    <div id="pagePane" class="container tab-pane fade"><br>
+
+    </div>
+    <div id="botPane" class="container tab-pane fade"><br>
+
+    </div>
+  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Done</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
